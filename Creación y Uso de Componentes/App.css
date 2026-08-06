@@ -1,0 +1,302 @@
+
+* { 
+
+  margin: 0; 
+
+  padding: 0; 
+
+  box-sizing: border-box; 
+
+} 
+
+ 
+
+:root { 
+
+  --lynko-naranja: #FF7A00; 
+
+  --lynko-naranja-oscuro: #E85D04; 
+
+  --lynko-naranja-claro: #FFE8D6; 
+
+  --lynko-fondo: #FFF8F2; 
+
+  --lynko-texto: #2B2118; 
+
+  --lynko-gris: #6B6B6B; 
+
+} 
+
+ 
+
+body { 
+
+  font-family: 'Segoe UI', system-ui, sans-serif; 
+
+  background-color: var(--lynko-fondo); 
+
+  color: var(--lynko-texto); 
+
+} 
+
+ 
+
+.app { 
+
+  display: flex; 
+
+  flex-direction: column; 
+
+  min-height: 100vh; 
+
+} 
+
+ 
+
+ 
+
+.lynko-header { 
+
+  display: flex; 
+
+  justify-content: space-between; 
+
+  align-items: center; 
+
+  padding: 1rem 2rem; 
+
+  background: linear-gradient(90deg, var(--lynko-naranja), var(--lynko-naranja-oscuro)); 
+
+  color: white; 
+
+} 
+
+ 
+
+.lynko-header__logo { font-size: 1.6rem; font-weight: 800; } 
+
+.lynko-header__logo span { color: #FFE8D6; } 
+
+.lynko-header__nav { display: flex; gap: 1.5rem; list-style: none; } 
+
+.lynko-header__nav a { color: white; text-decoration: none; font-weight: 500; } 
+
+.lynko-header__usuario { 
+
+  background: rgba(255,255,255,0.15); 
+
+  padding: 0.4rem 0.8rem; 
+
+  border-radius: 20px; 
+
+  font-size: 0.9rem; 
+
+} 
+
+ 
+
+ 
+
+.lynko-layout { display: flex; flex: 1; } 
+
+ 
+
+.lynko-sidebar { 
+
+  width: 220px; 
+
+  background-color: white; 
+
+  border-right: 1px solid #F0E0D0; 
+
+  padding: 1.5rem 1rem; 
+
+  display: flex; 
+
+  flex-direction: column; 
+
+} 
+
+ 
+
+.lynko-sidebar__item { 
+
+  display: flex; 
+
+  align-items: center; 
+
+  gap: 0.8rem; 
+
+  padding: 0.8rem 1rem; 
+
+  border-radius: 10px; 
+
+  color: var(--lynko-texto); 
+
+  font-weight: 500; 
+
+  margin-bottom: 0.4rem; 
+
+  cursor: pointer; 
+
+  border: none; 
+
+  background: none; 
+
+  text-align: left; 
+
+  font-size: 1rem; 
+
+  transition: background 0.2s, color 0.2s; 
+
+} 
+
+ 
+
+.lynko-sidebar__item:hover { background-color: var(--lynko-naranja-claro); color: var(--lynko-naranja-oscuro); } 
+
+.lynko-sidebar__item--activo { background-color: var(--lynko-naranja); color: white; } 
+
+ 
+
+.lynko-contenido { flex: 1; padding: 2rem; } 
+
+ 
+
+.lynko-cursos__grid { 
+
+  display: grid; 
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+
+  gap: 1.5rem; 
+
+} 
+
+ 
+
+.curso-card { 
+
+  background: white; 
+
+  border-radius: 16px; 
+
+  padding: 1.5rem; 
+
+  box-shadow: 0 3px 10px rgba(0,0,0,0.06); 
+
+  border-top: 5px solid var(--curso-color, var(--lynko-naranja)); 
+
+} 
+
+ 
+
+.curso-card__icono {  
+
+  font-size: 2.2rem; margin-bottom: 0.6rem;  
+
+} 
+
+ 
+
+.curso-card__nombre {  
+
+   
+
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; 
+
+ 
+
+} 
+
+.curso-card__lecciones {  
+
+  color: var(--lynko-gris); font-size: 0.85rem; margin-bottom: 0.8rem;  
+
+} 
+
+ 
+
+.curso-card__barra {  
+
+   
+
+  width: 100%; height: 10px; background-color: #F0E0D0; border-radius: 6px; overflow: hidden; margin-bottom: 0.5rem; 
+
+ 
+
+} 
+
+ 
+
+.curso-card__progreso {  
+
+   
+
+  height: 100%; background-color: var(--curso-color, var(--lynko-naranja)); border-radius: 6px; 
+
+ 
+
+} 
+
+ 
+
+.curso-card__porcentaje {  
+
+  font-size: 0.85rem; font-weight: 600; color: var(--lynko-gris); margin-bottom: 1rem; 
+
+ } 
+
+ 
+
+.curso-card__boton { width: 100%; padding: 0.6rem; border: none; border-radius: 8px; background-color: var(--curso-color, var(--lynko-naranja)); color: white; font-weight: 600; cursor: pointer; } 
+
+ 
+
+ 
+
+.usuarios-grid { 
+
+  display: grid; 
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+
+  gap: 1.5rem; 
+
+} 
+
+ 
+
+.usuario-card { background: white; border-radius: 16px; padding: 1.2rem; box-shadow: 0 3px 10px rgba(0,0,0,0.06); } 
+
+.usuario-card__top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; } 
+
+.usuario-avatar { 
+
+  display: inline-flex; align-items: center; justify-content: center; 
+
+  width: 42px; height: 42px; border-radius: 50%; 
+
+  background-color: var(--lynko-naranja-claro); color: var(--lynko-naranja-oscuro); 
+
+  font-weight: 700; 
+
+} 
+
+.usuario-card__nombre { font-weight: 700; } 
+
+.usuario-card__curso { font-size: 0.85rem; color: var(--lynko-gris); } 
+
+.usuario-nivel { margin-left: auto; padding: 0.2rem 0.7rem; border-radius: 20px; background-color: var(--lynko-naranja-claro); color: var(--lynko-naranja-oscuro); font-size: 0.8rem; font-weight: 600; } 
+
+.usuario-card__exp-texto { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--lynko-gris); margin-bottom: 0.3rem; } 
+
+.usuario-card__exp-barra { width: 100%; height: 10px; background-color: #F0E0D0; border-radius: 6px; overflow: hidden; } 
+
+.usuario-card__exp-progreso { height: 100%; background-color: var(--lynko-naranja); border-radius: 6px; } 
+
+ 
+
+.lynko-footer { background-color: var(--lynko-texto); color: #F0E0D0; text-align: center; padding: 1.5rem; font-size: 0.9rem; } 
+
+.lynko-footer span { color: var(--lynko-naranja); font-weight: 700; }
