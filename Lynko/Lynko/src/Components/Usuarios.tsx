@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, type ChangeEvent } from 'react'; 
 import CardAccion from './CardAccion';
 
 interface Usuario {
@@ -18,16 +18,31 @@ const usuarios: Usuario[] = [
 ];
 
 const Usuarios: React.FC = () => {
+  const [filtro, setFiltro] = useState<string>("");
+
   const manejarAccionUsuario = (nombreUsuario: string) => {
     console.log(`Acción: Ver perfil -> Módulo: Usuarios -> Usuario: ${nombreUsuario}`);
     alert(`Abriendo el perfil de "${nombreUsuario}" (Módulo: Usuarios)`);
   };
 
+  const usuariosFiltrados = usuarios.filter(u => 
+    u.nombre.toLowerCase().includes(filtro.toLowerCase())
+  );
+
   return (
     <div className="lynko-usuarios">
       <h2>Usuarios</h2>
+      <div style={{ marginBottom: "15px" }}>
+        <input 
+          type="text" 
+          placeholder="Buscar usuario..." 
+          value={filtro}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setFiltro(e.target.value)}
+          className="usuarios-buscador"
+        />
+      </div>
       <div className="usuarios-grid">
-        {usuarios.map((u) => {
+        {usuariosFiltrados.map((u) => {
           const porcentajeExp = Math.round((u.exp / u.expMax) * 100);
           return (
             <div key={u.id} className="usuario-card">

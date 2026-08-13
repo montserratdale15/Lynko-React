@@ -464,5 +464,31 @@ body {
   transition: left 0.2s;
 }
 
+
+.usuarios-buscador {
+  width: 100%;
+  padding: 14px 20px;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--lynko-naranja-claro);
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: white;
+  color: var(--lynko-texto);
+  outline: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.usuarios-buscador::placeholder {
+  color: var(--lynko-gris);
+  font-weight: 500;
+}
+
+.usuarios-buscador:focus {
+  border-color: var(--lynko-naranja);
+  box-shadow: 0 4px 15px rgba(255, 122, 0, 0.12);
+}
+
 .toggle-control--activo { background-color: var(--lynko-naranja); }
 .toggle-control--activo::after { left: 23px; }

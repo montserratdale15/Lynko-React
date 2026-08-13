@@ -2,21 +2,32 @@ import React, { useState } from 'react';
 import CardAccion from './CardAccion';
 
 const Configuracion: React.FC = () => {
-  const [musica, setMusica] = useState(true);
-  const [sonidos, setSonidos] = useState(true);
-  const [notificaciones, setNotificaciones] = useState(false);
+  const [musica, setMusica] = useState<boolean>(true);
+  const [sonidos, setSonidos] = useState<boolean>(true);
+  const [notificaciones, setNotificaciones] = useState<boolean>(false);
+  const [alertaGuardado, setAlertaGuardado] = useState<boolean>(false);
 
   const manejarAccionGuardar = () => {
+    setAlertaGuardado(true);
+    setTimeout(() => {
+      setAlertaGuardado(false);
+    }, 3000);
+
     console.log(
       `Acción: Guardar cambios -> Módulo: Configuración -> Música: ${musica}, Sonidos: ${sonidos}, Notificaciones: ${notificaciones}`
     );
-    alert('Cambios guardados en Configuración ⚙️');
   };
 
   return (
     <div className="lynko-config">
       <h2>Configuración ⚙️</h2>
       <p className="lynko-config__subtitulo">Adapta tu espacio de estudio como más te guste.</p>
+
+      {alertaGuardado && (
+        <div style={{ padding: '10px', backgroundColor: '#d4edda', color: '#155724', marginBottom: '15px', borderRadius: '5px' }}>
+          ¡Cambios guardados con éxito en Configuración! ✅
+        </div>
+      )}
 
       <section className="settings-container">
         <div className="settings-row">

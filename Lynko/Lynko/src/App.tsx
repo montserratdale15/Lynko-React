@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Sidebar from './components/Sidebar';
-import Usuarios from './components/Usuarios';
-import Cursos from './components/Cursos';
-import Login from './components/Login';
-import Registro from './components/Registro';
-import Configuracion from './components/Configuracion';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Sidebar from './Components/Sidebar';
+import Usuarios from './Components/Usuarios';
+import Cursos from './Components/Cursos';
+import Login from './Components/Login';
+import Registro from './Components/Registro';
+import Configuracion from './Components/Configuracion';
 
 function App() {
   const [pagina, setPagina] = useState<string>('cursos');

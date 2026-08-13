@@ -9,7 +9,6 @@ interface CardAccionProps {
 
 const CardAccion: React.FC<CardAccionProps> = ({ titulo, descripcion, textoBoton, onAccion }) => {
   const manejarClick = () => {
-    // Hijo -> Padre: le mandamos info al padre a través de la función que nos pasó
     onAccion(titulo);
   };
 

@@ -1,21 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, type ChangeEvent, type FormEvent } from 'react';
 import CardAccion from './CardAccion';
 
 const Login: React.FC = () => {
-  const [correo, setCorreo] = useState('');
-  const [contrasena, setContrasena] = useState('');
-  const [mostrarContrasena, setMostrarContrasena] = useState(false);
+  const [correo, setCorreo] = useState<string>('');
+  const [contrasena, setContrasena] = useState<string>('');
+  const [mostrarContrasena, setMostrarContrasena] = useState<boolean>(false);
+  const [cargando, setCargando] = useState<boolean>(false);
 
-  // Acción en el padre por el clic del hijo (CardAccion = botón mostrar/ocultar)
   const manejarAccionPassword = () => {
     setMostrarContrasena((prev) => !prev);
     console.log(`Acción: Alternar visibilidad de contraseña -> Módulo: Login`);
   };
 
-  const manejarSubmit = (e: React.FormEvent) => {
+  const manejarSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(`Datos ingresados:\nCorreo: ${correo}\nContraseña: ${contrasena}`);
-    console.log(`Acción: Enviar formulario -> Módulo: Login -> Correo: ${correo}`);
+    setCargando(true);
+
+    setTimeout(() => {
+      setCargando(false);
+      alert(`Datos ingresados:\nCorreo: ${correo}`);
+      console.log(`Acción: Enviar formulario -> Módulo: Login -> Correo: ${correo}`);
+    }, 1500);
   };
 
   return (
@@ -32,7 +37,7 @@ const Login: React.FC = () => {
             placeholder="ejemplo@correo.com"
             required
             value={correo}
-            onChange={(e) => setCorreo(e.target.value)}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setCorreo(e.target.value)}
           />
         </div>
 
@@ -44,11 +49,10 @@ const Login: React.FC = () => {
               placeholder="Mínimo 8 caracteres"
               required
               value={contrasena}
-              onChange={(e) => setContrasena(e.target.value)}
+              onChange={(e: ChangeEvent<HTMLInputElement>) => setContrasena(e.target.value)}
             />
           </div>
 
-          {/* Padre -> Hijo: le pasamos el texto del botón según el estado */}
           <CardAccion
             titulo="Contraseña"
             descripcion={mostrarContrasena ? 'Contraseña visible' : 'Contraseña oculta'}
@@ -57,7 +61,9 @@ const Login: React.FC = () => {
           />
         </div>
 
-        <button type="submit" className="btn-auth">Ingresar</button>
+        <button type="submit" className="btn-auth" disabled={cargando}>
+          {cargando ? 'Verificando...' : 'Ingresar'}
+        </button>
       </form>
 
       <div className="auth-footer">
