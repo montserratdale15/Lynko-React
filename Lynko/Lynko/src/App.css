@@ -490,5 +490,36 @@ body {
   box-shadow: 0 4px 15px rgba(255, 122, 0, 0.12);
 }
 
+.notificaciones-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 280px;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+.notificaciones-panel ul {
+  list-style: none;
+  padding: 0;
+}
+.notificaciones-panel li {
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+}
+.notificaciones-error {
+  color: #ff6b6b;
+}
+.notificaciones-hora {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
 .toggle-control--activo { background-color: var(--lynko-naranja); }
 .toggle-control--activo::after { left: 23px; }
+
