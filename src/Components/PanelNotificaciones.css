@@ -1,0 +1,116 @@
+.panel-notificaciones {
+  background: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  border-top: 5px solid var(--lynko-naranja);
+}
+
+.panel-notificaciones__titulo {
+  font-size: 1.1rem;
+  color: var(--lynko-texto);
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  border-bottom: 2px solid var(--lynko-naranja-claro);
+  padding-bottom: 0.8rem;
+}
+
+.panel-notificaciones__vacio {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--lynko-gris);
+}
+
+.panel-notificaciones__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.panel-notificaciones__item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid var(--lynko-naranja);
+  background-color: var(--lynko-fondo);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.panel-notificaciones__item--exito {
+  border-left-color: #4caf50;
+  background-color: #f1f8e9;
+}
+
+.panel-notificaciones__item--error {
+  border-left-color: #f44336;
+  background-color: #ffebee;
+}
+
+.panel-notificaciones__item--advertencia {
+  border-left-color: #ff9800;
+  background-color: #fff3e0;
+}
+
+.panel-notificaciones__item--info {
+  border-left-color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.panel-notificaciones__icono {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.panel-notificaciones__contenido {
+  flex: 1;
+}
+
+.panel-notificaciones__titulo-notif {
+  font-weight: 700;
+  color: var(--lynko-texto);
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.panel-notificaciones__mensaje {
+  font-size: 0.85rem;
+  color: var(--lynko-gris);
+  margin-bottom: 0.4rem;
+}
+
+.panel-notificaciones__timestamp {
+  font-size: 0.75rem;
+  color: #999;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .panel-notificaciones {
+    padding: 1rem;
+  }
+
+  .panel-notificaciones__titulo {
+    font-size: 1rem;
+  }
+
+  .panel-notificaciones__item {
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
+}
